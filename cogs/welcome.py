@@ -1,23 +1,25 @@
 import disnake
-from disnake.ext import commands
+from disnake.ext import commands, tasks
 
 class Welcome(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
+    self.boost_stats.start()
 
-  @commands.slash_command(description="Responds with 'World'")
-  async def hello(self, inter):
-    await inter.response.send_message("World")
-
-  @commands.slash_command(description="Returns premuim users of this server")
-  async def prem(self, inter):
+  @tasks.loop(minutes=5)
+  async def boost_stats(self):
+    await self.bot.wait_until_ready()
+    guild = self.bot.get_guild(817437132397871135)
     lista = []
-    for i in inter.guild.premium_subscribers:
-      lista.append(i.name)
+    for i in guild.premium_subscribers:
+      lista.append(i.id)
 
-    await inter.response.send_message(lista)
-      
-    
+    await self.bot.boosters.update_one({"_id" : 0}, {"$set" : {"boosters" : lista}})
+    print("Boosters has been updated")
+
+  @commands.slash_command()
+  async def test(self, ctx: disnake.Interaction, member: disnake.Member= commands.Param(description="Choose a member")): 
+    await ctx.response.send_message(content=f"Member passed: {member}")
     
   @commands.Cog.listener()
   async def on_member_join(self, member):

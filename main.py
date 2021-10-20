@@ -5,15 +5,20 @@ import alive
 from disnake.ext import commands
 from motor.motor_asyncio import AsyncIOMotorClient
 
-bot = commands.Bot(
+class Spamton(commands.Bot):
+  def __init__(self, **kwargs):
+    super().__init__(**kwargs)
+    self.MongoUrl = os.environ["MongoUrl"]
+    self.cluster = AsyncIOMotorClient(self.MongoUrl)
+    self.db = self.cluster["database"]
+    self.boosters = self.db["boosters"]
+    
+bot = Spamton(
   command_prefix="s!", 
   intents=disnake.Intents.all(),
-  test_guilds=[817437132397871135]
+  test_guilds=[817437132397871135],
+  sync_commands_debug=True
 )
-
-@bot.event
-async def on_ready():
-  print("im on!")
   
 cogs = ["cogs.welcome", "jishaku"]
 
