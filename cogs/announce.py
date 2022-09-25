@@ -7,7 +7,7 @@ class Announce(commands.Cog):
 		self.boost_stats.start()
 
 	@commands.has_role(1023724498060578876)
-	@commands.command()
+	@commands.slash_command()
 	async def announce(self, inter):
 		return
     
