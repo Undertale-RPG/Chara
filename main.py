@@ -6,18 +6,19 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 load_dotenv()
 
-description = """The undertale RPG Beta bot."""
+description = """The undertale rpg support server moderation bot"""
 
-intents = disnake.Intents.default()
-intents.members = True
-intents.message_content = True
+intents = disnake.Intents.none()
+intents.members = False
+intents.message_content = False
 
-class SpamtonBot(commands.AutoShardedBot):
+class SpamtonBot(commands.AutoShardedInteractionBot):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.BotToken = os.getenv("TOKEN")
         self.vote_url = "https://top.gg/bot/815153881217892372"
         self.activity = disnake.Game("Together with all of you")
+        self.status = disnake.Status.offline
         self.help_command = None
         self.MongoUrl = os.getenv("MONGO_URL")
         self.cluster = AsyncIOMotorClient(self.MongoUrl)

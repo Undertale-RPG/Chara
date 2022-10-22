@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 .env
+announce.py
 
 # C extensions
 *.so
