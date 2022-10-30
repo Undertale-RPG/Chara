@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands, tasks
 
-class Welcome(commands.Cog):
+class Events(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 	#	self.boost_stats.start()
@@ -36,4 +36,4 @@ class Welcome(commands.Cog):
     
 
 def setup(bot):
-	bot.add_cog(Welcome(bot))
+	bot.add_cog(Events(bot))
