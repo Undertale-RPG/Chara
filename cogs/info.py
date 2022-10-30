@@ -59,12 +59,11 @@ class Info(commands.Cog):
 	async def roles(self, inter):
 		guild_roles = []
 		for role in inter.guild.roles:
-			print(role.is_bot_managed())
 			if role.is_bot_managed() == False:
 				guild_roles.append(role)
 			else:
 				pass
-		roles = "".join(f"• {role.mention}`({len(role.members)}members)`\n" for role in guild_roles)
+		roles = "".join(f"• {role.mention}`({len(role.members)} members)`\n" for role in guild_roles)
 		em = disnake.Embed(
 			title="List of all our roles",
 			color=0x5bb95d,
