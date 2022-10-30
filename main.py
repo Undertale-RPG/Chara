@@ -8,9 +8,7 @@ load_dotenv()
 
 description = """The undertale rpg support server moderation bot"""
 
-intents = disnake.Intents.none()
-intents.members = False
-intents.message_content = False
+intents = disnake.Intents.all()
 
 class SpamtonBot(commands.AutoShardedInteractionBot):
     def __init__(self, **kwargs):
