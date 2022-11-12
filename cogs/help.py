@@ -9,7 +9,6 @@ class Help(commands.Cog):
     @commands.slash_command(description="a complete view of the bot's features and commands.")
     @commands.cooldown(1, 12, commands.BucketType.user)
     async def help(self, inter):
-        """Info on how to use the bot and it's commands.""" 
         em = disnake.Embed(
             title = "📜 | Help Menu!",
             color = 0x0077ff,

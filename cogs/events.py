@@ -4,17 +4,17 @@ from disnake.ext import commands, tasks
 class Events(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
-	#	self.boost_stats.start()
+		self.boost_stats.start()
 
-	#@tasks.loop(minutes=5)
-	#async def boost_stats(self):
-	#	await self.bot.wait_until_ready()
-	#	guild = self.bot.get_guild(817437132397871135)
-	#	lista = []
-	#	for i in guild.premium_subscribers:
-	#		lista.append(i.id)
-	#	await self.bot.boosters.update_one({"_id" : 0}, {"$set" : {"boosters" : lista}})
-	#	print("Boosters has been updated")
+	@tasks.loop(minutes=5)
+	async def boost_stats(self):
+		await self.bot.wait_until_ready()
+		guild = self.bot.get_guild(817437132397871135)
+		lista = []
+		for i in guild.premium_subscribers:
+			lista.append(i.id)
+		await self.bot.boosters.update_one({"_id" : 0}, {"$set" : {"boosters" : lista}})
+		print("Boosters has been updated")
 
 	@commands.Cog.listener()
 	async def on_ready(self):
