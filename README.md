@@ -17,4 +17,5 @@ The bot is too unoptimized, the code is messed up and needs to be cleaned out an
 
 # **To Do List**
 
-- Activity ping command.
+- timeout on ping owner
+- give command for bot owner
