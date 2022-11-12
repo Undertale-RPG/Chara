@@ -2,7 +2,7 @@ import disnake
 from disnake.ext import commands
 
 
-class Info(commands.Cog):
+class Utility(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -36,5 +36,15 @@ class Info(commands.Cog):
 		em.add_field(name="Community team", value=f"{ct_members}")
 		await inter.send(embed=em)
 
+
+	@commands.slash_command(description="ping users if you are lonely")
+	@commands.cooldown(2, 43200, commands.BucketType.guild)
+	async def pingfor(self, inter, ping: str = commands.Param(choices=["chat", "voice"])):
+		if ping == "chat":
+			await inter.send(f"<@&1041044007037448243> • {inter.author.mention} wants to chat!")
+		if ping == "voice":
+			await inter.send(f"<@&1041044062561648661> • {inter.author.mention} wants to voice chat!")
+		return
+
 def setup(bot):
-	bot.add_cog(Info(bot))
+	bot.add_cog(Utility(bot))

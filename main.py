@@ -16,12 +16,12 @@ class SpamtonBot(commands.AutoShardedInteractionBot):
         self.BotToken = os.getenv("TOKEN")
         self.vote_url = "https://top.gg/bot/815153881217892372"
         self.activity = disnake.Game("Together with all of you")
-        self.status = disnake.Status.offline
         self.help_command = None
         self.MongoUrl = os.getenv("MONGO_URL")
         self.cluster = AsyncIOMotorClient(self.MongoUrl)
         self.db = self.cluster["database"]
         self.boosters = self.db["boosters"]
+        self.error_webhook = os.getenv("ERROR_WEBHOOK")
 
     def load_all_cogs(self):
         for filename in os.listdir("./cogs"):
