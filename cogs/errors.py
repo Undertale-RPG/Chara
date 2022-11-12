@@ -16,6 +16,8 @@ class Errors(commands.Cog):
                 color=0x0077ff
             )
             return await inter.send(embed=em, ephemeral=True)
+        else:
+            await inter.send("You have run into a Error the developer has been notified." ,ephemeral=True)
         
         url = inter.bot.error_webhook
 
