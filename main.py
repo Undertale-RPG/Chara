@@ -2,6 +2,7 @@ import os
 import disnake
 from dotenv import load_dotenv
 from disnake.ext import commands
+from disnake import AllowedMentions
 from motor.motor_asyncio import AsyncIOMotorClient
 
 load_dotenv()
@@ -34,7 +35,13 @@ class SpamtonBot(commands.AutoShardedInteractionBot):
 bot = SpamtonBot(
     description=description,
     intents=intents,
-    owner_ids=[536538183555481601, 1023550762816638996]
+    owner_ids=[536538183555481601, 1023550762816638996],
+    allowed_mentions=AllowedMentions(
+        users=True,         # Whether to ping individual user @mentions
+        everyone=False,      # Whether to ping @everyone or @here mentions
+        roles=True,         # Whether to ping role @mentions
+        replied_user=True,  # Whether to ping on replies to messages
+    )
 )
 
 
