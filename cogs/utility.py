@@ -10,13 +10,11 @@ class Utility(commands.Cog):
 	@commands.cooldown(1, 12, commands.BucketType.user)
 	async def team(self, inter):
 		guild = self.bot.get_guild(inter.guild.id)
-		developers = guild.get_role(971692834077962261)
 		admins = guild.get_role(849635343891955802)
 		managers = guild.get_role(989189354847109122)
 		mods = guild.get_role(971681721445654678)
 		helpers = guild.get_role(1009910347123138691)
 		CT = guild.get_role(1022900923611222167)
-		dev_members = "".join(f"• {member.name}\n" for member in developers.members)
 		admin_members = "".join(f"• {member.name}\n" for member in admins.members)
 		manager_members = "".join(f"• {member.name}\n" for member in managers.members)
 		mod_members = "".join(f"• {member.name}\n" for member in mods.members)
