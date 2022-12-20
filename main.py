@@ -33,7 +33,6 @@ class SpamtonBot(commands.AutoShardedInteractionBot):
 
 
 bot = SpamtonBot(
-    description=description,
     intents=intents,
     owner_ids=[536538183555481601, 1023550762816638996],
     allowed_mentions=AllowedMentions(
