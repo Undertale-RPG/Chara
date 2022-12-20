@@ -26,7 +26,6 @@ class Utility(commands.Cog):
 			color=0x5bb95d
 		)
 		em.set_thumbnail(url=inter.guild.icon)
-		em.add_field(name="Developers", value=f"{dev_members}")
 		em.add_field(name="Admins", value=f"{admin_members}")
 		em.add_field(name="Managers", value=f"{manager_members}")
 		em.add_field(name="Moderators",value=f"{mod_members}")
