@@ -11,7 +11,7 @@ class Help(commands.Cog):
     async def help(self, inter):
         em = disnake.Embed(
             title = "📜 | Help Menu!",
-            color = 0x0077ff,
+            color = 0xF99244,
             timestamp = datetime.datetime.now()
         )
         em.set_thumbnail(url=self.bot.user.avatar.url)

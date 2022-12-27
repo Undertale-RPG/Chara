@@ -4,7 +4,7 @@ from disnake.ext import commands, tasks
 class Events(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
-		self.boost_stats.start()
+		#self.boost_stats.start()
 
 	@tasks.loop(minutes=5)
 	async def boost_stats(self):
@@ -24,7 +24,7 @@ class Events(commands.Cog):
     
 	@commands.Cog.listener()
 	async def on_member_join(self, member):
-		embed = disnake.Embed(color=0x0077ff)
+		embed = disnake.Embed(color=0xF99244)
 		embed.set_thumbnail(member.guild.icon.url)
 		embed.title=f"Welcome to {member.guild.name}"
 		embed.set_author(name=str(member), icon_url=member.avatar.url)

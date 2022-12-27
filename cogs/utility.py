@@ -23,7 +23,7 @@ class Utility(commands.Cog):
 
 		em = disnake.Embed(
 			title=f"Our staff team!",
-			color=0x5bb95d
+			color=0xF99244
 		)
 		em.set_thumbnail(url=inter.guild.icon)
 		em.add_field(name="Admins", value=f"{admin_members}")
@@ -41,6 +41,11 @@ class Utility(commands.Cog):
 			await inter.send(f"<@&1041044007037448243> • {inter.author.mention} wants to chat!")
 		if ping == "voice":
 			await inter.send(f"<@&1041044062561648661> • {inter.author.mention} wants to voice chat!")
+		return
+
+	@commands.slash_command(description="Mark a form as solved")
+	@commands.cooldown(1, 12, commands.BucketType.user)
+	async def solved(self, inter):
 		return
 
 def setup(bot):
