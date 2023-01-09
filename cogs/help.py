@@ -10,9 +10,9 @@ class Help(commands.Cog):
     @commands.cooldown(1, 12, commands.BucketType.user)
     async def help(self, inter):
         em = disnake.Embed(
-            title = "📜 | Help Menu!",
-            color = 0xF99244,
-            timestamp = datetime.datetime.now()
+            title="📜 | Help Menu!",
+            color=0xF99244,
+            timestamp=datetime.datetime.now()
         )
         em.set_thumbnail(url=self.bot.user.avatar.url)
         forbid = ["Events", "Errors", "Owner"]   
