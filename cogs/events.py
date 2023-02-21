@@ -27,7 +27,7 @@ class Events(commands.Cog):
 		embed = disnake.Embed(color=0xF99244)
 		embed.set_thumbnail(member.guild.icon.url)
 		embed.title=f"Welcome to {member.guild.name}"
-		embed.set_author(name=str(member), icon_url=member.avatar.url)
+		embed.set_author(name=str(member), icon_url=member.display_avatar)
 		embed.set_footer(text=f"Thanks for joining, your the {member.guild.member_count}th member!", icon_url=self.bot.user.avatar.url)
 		embed.description="• Be sure to read the <#827771691727716353>\n• You can chat with other people at <#827651362099036180>\n • Ask for support and help at <#827651414540943370>!\n• You can get some notification roles at <#846972481511227432>"
 		embed.set_image("https://cdn.discordapp.com/attachments/899309915020095488/900106251256623154/You_Doodle_2021-10-19T19_40_42Z.jpg")
