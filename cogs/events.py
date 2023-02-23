@@ -4,7 +4,7 @@ from disnake.ext import commands, tasks
 class Events(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
-		#self.boost_stats.start()
+		self.boost_stats.start()
 
 	@tasks.loop(minutes=5)
 	async def boost_stats(self):
