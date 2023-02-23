@@ -46,7 +46,15 @@ class Utility(commands.Cog):
 	@commands.slash_command(description="Mark a form as solved")
 	@commands.cooldown(1, 12, commands.BucketType.user)
 	async def solved(self, inter):
-		return
+		if not isinstance(inter.channel.parent, disnake.ForumChannel):
+			return print("test")
+		
+		em = disnake.Embed(
+			title="Solved!",
+			color=0xF99244,
+			description="This tread has been marked as solved, if your question has not been answered open a new tread in <#1047304462710079549> or <#1047304535074422864>"
+		)
+		await inter.send(embed=em)
 
 def setup(bot):
 	bot.add_cog(Utility(bot))
