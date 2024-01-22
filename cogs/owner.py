@@ -9,6 +9,21 @@ class Owner(commands.Cog):
 
     @commands.is_owner()
     @commands.slash_command()
+    async def add_badge(self, inter, user:disnake.User, badge: str = commands.Param(name="badge", choices=["developer", "staff", "beta", "bug hunter", "resets", "achievement", "booster", "blacklist"])):
+        info = await self.bot.players.find_one({"_id": user.id})
+        badges = info["badges"]
+        new_badges = []
+        new_badges.append(badge)
+        for i in badges:
+            new_badges.append(i)
+
+        info = {"badges": new_badges}
+        await inter.bot.players.update_one({"_id": user.id}, {"$set": info})
+
+        await inter.send(f"badge **{badge}** has been given to {user.mention}")
+
+    @commands.is_owner()
+    @commands.slash_command()
     async def announce(self, inter, ping:disnake.Role, channel:disnake.TextChannel):
 
         await inter.response.send_modal(

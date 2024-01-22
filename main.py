@@ -22,6 +22,7 @@ class SpamtonBot(commands.AutoShardedInteractionBot):
         self.cluster = AsyncIOMotorClient(self.MongoUrl)
         self.db = self.cluster["database"]
         self.boosters = self.db["boosters"]
+        self.players = self.db["players"]
         self.error_webhook = os.getenv("ERROR_WEBHOOK")
 
     def load_all_cogs(self):
