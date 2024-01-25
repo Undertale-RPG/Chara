@@ -20,7 +20,7 @@ class Events(commands.Cog):
 			if "booster" in badges:
 				return
 			new_badges = []
-        	new_badges.append("booster")
+			new_badges.append("booster")
         	for i in badges:
             	new_badges.append(i)
 			await self.bot.players.update_one({"_id" : user}, {"$set" : {"badges" : new_badges}})
