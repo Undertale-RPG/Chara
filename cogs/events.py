@@ -24,7 +24,6 @@ class Events(commands.Cog):
 			for i in badges:
 				new_badges.append(i)
 			await self.bot.players.update_one({"_id" : user}, {"$set" : {"badges" : new_badges}})
-			
 		print("Boosters have been updated")
 
 	@commands.Cog.listener()
