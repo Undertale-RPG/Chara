@@ -12,6 +12,9 @@ class Owner(commands.Cog):
     async def add_badge(self, inter, user:disnake.User, badge: str = commands.Param(name="badge", choices=["developer", "staff", "beta", "bug hunter", "resets", "achievement", "booster", "blacklist"])):
         info = await self.bot.players.find_one({"_id": user.id})
         badges = info["badges"]
+        if badge in badges:
+            await inter.send(f"{user.name} already has\nbadge: {badge}")
+            return
         new_badges = []
         new_badges.append(badge)
         for i in badges:
