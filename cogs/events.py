@@ -16,7 +16,7 @@ class Events(commands.Cog):
 		await self.bot.boosters.update_one({"_id" : 0}, {"$set" : {"boosters" : lista}})
 		for user in lista:
 			info = await self.bot.players.find_one({"_id": user})
-			badges = user["badge"]
+			badges = info["badge"]
 			if "booster" in badges:
 				return
 			new_badges = []
