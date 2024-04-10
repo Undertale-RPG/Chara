@@ -25,7 +25,6 @@ class Utility(commands.Cog):
 		await inter.send(embed=em)
 
 	@commands.slash_command(description="Mark a form as solved")
-	@commands.cooldown(1, 12, commands.BucketType.user)
 	async def solved(self, inter):
 		if not isinstance(inter.channel.parent, disnake.ForumChannel):
 			return print("test")

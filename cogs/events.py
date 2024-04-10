@@ -18,7 +18,7 @@ class Events(commands.Cog):
 			info = await self.bot.players.find_one({"_id": user})
 			badges = info["badges"]
 			if "booster" in badges:
-				return
+				continue
 			new_badges = []
 			new_badges.append("booster")
 			for i in badges:
